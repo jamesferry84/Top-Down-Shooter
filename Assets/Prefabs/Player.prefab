@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4866469977939523766}
   - component: {fileID: 582407431823290214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: playerShip1_blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: f1b520983d44545f2b0f1596df19b988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,10 @@ GameObject:
   - component: {fileID: -6680089321822235354}
   - component: {fileID: -2527888393605473773}
   - component: {fileID: 286165956321141993}
-  m_Layer: 0
+  - component: {fileID: -3713354986481536775}
+  - component: {fileID: -2663691744299641845}
+  - component: {fileID: 7751855383750181368}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +226,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -255,3 +258,46 @@ PolygonCollider2D:
       - {x: 0.08586615, y: 0.075481534}
       - {x: 0.06447804, y: 0.24865443}
   m_UseDelaunayMesh: 0
+--- !u!114 &-3713354986481536775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011213810067977336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ed89658f9564ffca722471108bd928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!114 &-2663691744299641845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011213810067977336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c22af804d5a4c0bb02d9aa7e8b5c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+--- !u!114 &7751855383750181368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011213810067977336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f725f702f65264965a56d8cf55740735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8941952337739676706, guid: abf230f6cafeb412a83b96dea6b2ab6b, type: 3}
+  projectileSpeed: 10
+  projectileLifeTime: 5
+  firingRate: 0.5
+  isFiring: 0
