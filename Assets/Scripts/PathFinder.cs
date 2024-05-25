@@ -1,15 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    [SerializeField] private WaveConfigSO waveConfig;
+    private EnemySpawner enemySpawner;
+    private WaveConfigSO waveConfig;
     private List<Transform> waypoints;
     private int currentWaypoint = 0;
 
+    private void Awake()
+    {
+        enemySpawner = FindObjectOfType<EnemySpawner>();
+        
+    }
+
     void Start()
     {
+        waveConfig = enemySpawner.getCurrentWave();
         waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[currentWaypoint].position;
     }
