@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Shooter : MonoBehaviour
 {
@@ -19,6 +21,12 @@ public class Shooter : MonoBehaviour
     [HideInInspector] public bool isFiring;
 
     private Coroutine firingCoroutine;
+    private AudioPlayer audioPlayer;
+
+    private void Awake()
+    {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
 
     void Start()
     {
@@ -57,6 +65,7 @@ public class Shooter : MonoBehaviour
                 body.velocity = transform.up * projectileSpeed;
             }
             Destroy(instance, projectileLifeTime);
+            audioPlayer.PlayShootingClip();
             yield return new WaitForSeconds(GetRandomSpawnTime());
         }
     }
