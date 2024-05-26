@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIDisplay : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private ScoreKeeper _scoreKeeper;
+    private Health _health;
     void Start()
     {
         
@@ -13,6 +16,6 @@ public class UIDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = currentScore.ToString();
     }
 }
