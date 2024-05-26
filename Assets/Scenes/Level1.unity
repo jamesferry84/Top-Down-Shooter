@@ -208,7 +208,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.501
+  m_Value: 0.577
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1180,6 +1180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f324f9f0efe4a7083229b965bdf579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1654314474}
+  slider: {fileID: 25521323}
 --- !u!1 &1739002120
 GameObject:
   m_ObjectHideFlags: 0
