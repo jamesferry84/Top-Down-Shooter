@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
 
     private AudioPlayer audioPlayer;
     private ScoreKeeper _scoreKeeper;
+    private LevelManager levelManager;
 
     public int GetHealth()
     {
@@ -27,6 +28,7 @@ public class Health : MonoBehaviour
         _scoreKeeper = FindObjectOfType<ScoreKeeper>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
         _cameraShake = Camera.main.GetComponent<CameraShake>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +52,10 @@ public class Health : MonoBehaviour
             if (!isPlayer)
             {
                 _scoreKeeper.UpdateScore(score);
+            }
+            else
+            {
+                levelManager.LoadGameOver();
             }
             
             Destroy(gameObject);
