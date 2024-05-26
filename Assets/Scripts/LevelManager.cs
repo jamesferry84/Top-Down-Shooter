@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGame()
     {
-        scoreKeeper.ResetScore(0);
+        scoreKeeper.ResetScore();
         SceneManager.LoadScene("Level1");
     }
 

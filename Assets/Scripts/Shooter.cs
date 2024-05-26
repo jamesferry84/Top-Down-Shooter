@@ -11,7 +11,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
-    [SerializeField] private float firingRate = 0.5f;
+    // [SerializeField] private float firingRate = 0.5f;
     
     [Header("Conditions")]
     [SerializeField] private bool isPlayer;
