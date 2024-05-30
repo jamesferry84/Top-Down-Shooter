@@ -28,6 +28,17 @@ public class PathFinder : MonoBehaviour
         FollowPath();
     }
 
+    public bool checkAllEnemiesDestroyed()
+    {
+        waveConfig.removeEnemy();
+        return waveConfig.AllEnemiesDestroyed();
+    }
+
+    public int getNumOfEnemiesRemaining()
+    {
+        return waveConfig.GetEnemyCount();
+    }
+
     void FollowPath()
     {
         if (currentWaypoint < waypoints.Count)

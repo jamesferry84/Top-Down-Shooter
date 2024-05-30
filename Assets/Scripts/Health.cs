@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (damageDealer != null)
         {
@@ -41,6 +42,19 @@ public class Health : MonoBehaviour
             PlayHitEffect();
             ShakeCamera();
             damageDealer.Hit();
+        }
+        PathFinder pathFinder = GetComponent<PathFinder>();
+        if (pathFinder != null)
+        {
+            if (pathFinder.checkAllEnemiesDestroyed())
+            {
+                Debug.Log("All enemies destroyed in wave!! congrats!");
+            }
+            else
+            {
+                Debug.Log(pathFinder.getNumOfEnemiesRemaining() + " more enemies to destroy");
+            }
+            
         }
     }
 
@@ -54,7 +68,7 @@ public class Health : MonoBehaviour
                 _scoreKeeper.UpdateScore(score);
             }
             else
-            {
+            { 
                 levelManager.LoadGameOver();
             }
             

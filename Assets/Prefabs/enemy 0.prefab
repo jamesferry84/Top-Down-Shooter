@@ -121,14 +121,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.14670326, y: 0.21815754}
-      - {x: -0.0000000037252903, y: 0.15297349}
-      - {x: -0.14591604, y: 0.22524513}
-      - {x: -0.23937435, y: 0.09036571}
-      - {x: -0.12704003, y: -0.22726807}
-      - {x: -0.012579501, y: -0.17142004}
-      - {x: 0.12012432, y: -0.22856903}
-      - {x: 0.24364978, y: 0.09493351}
+    - - {x: 0.12987703, y: 0.20787486}
+      - {x: -0.0000000037252903, y: 0.15577786}
+      - {x: -0.048835237, y: 0.19411631}
+      - {x: -0.13095939, y: 0.21122329}
+      - {x: -0.19637397, y: 0.045495752}
+      - {x: -0.23808552, y: -0.079487585}
+      - {x: -0.15321417, y: -0.21231142}
+      - {x: 0.0033119414, y: -0.16581129}
+      - {x: 0.15003762, y: -0.21361236}
+      - {x: 0.23430187, y: -0.08267674}
   m_UseDelaunayMesh: 0
 --- !u!114 &-5830156001035421405
 MonoBehaviour:
@@ -155,8 +157,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c22af804d5a4c0bb02d9aa7e8b5c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   health: 10
+  score: 50
   hitEffect: {fileID: 958516953304216594, guid: 80fd229e4e6054542a30cf1289f540d5, type: 3}
+  applyCameraShake: 0
 --- !u!114 &-391666654720419215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,12 +175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 8941952337739676706, guid: 9d1dbf0878d4d4b40961612181225f39, type: 3}
-  projectileSpeed: 2
+  projectileSpeed: 4
   projectileLifeTime: 5
-  firingRate: 1
+  firingDelay: 1.2
   isPlayer: 0
   minFiringDelay: 0
   maxFiringDelay: 1
+  target: {fileID: 3893172351282292673, guid: 4856036f2eb8a4b24854bc6a233f19f6, type: 3}
   isFiring: 0
 --- !u!1 &8877315000157910518
 GameObject:

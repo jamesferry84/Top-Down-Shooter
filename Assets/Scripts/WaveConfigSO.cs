@@ -48,4 +48,18 @@ public class WaveConfigSO : ScriptableObject
 
       return waypoints;
    }
+
+   public bool AllEnemiesDestroyed()
+   {
+      return enemies.Count <= 0;
+   }
+
+   public void removeEnemy()
+   {
+      if (enemies.Count > 0)
+      {
+         enemies.RemoveAt(enemies.Count-1);
+      }
+
+   }
 }
