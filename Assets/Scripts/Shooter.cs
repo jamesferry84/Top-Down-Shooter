@@ -80,7 +80,7 @@ public class Shooter : MonoBehaviour
                 }
                 else
                 {
-                    body.velocity = transform.up * projectileSpeed;
+                    body.velocity = transform.up * projectileSpeed; //test
                 }
                 
             }
