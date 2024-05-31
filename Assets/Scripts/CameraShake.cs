@@ -7,6 +7,7 @@ public class CameraShake : MonoBehaviour
 
     [SerializeField] private float shakeDuration = 1f;
     [SerializeField] float shakeMagnitude = .5f;
+    [SerializeField] private float scrollSpeed = 1f;
 
     private Vector3 initialPosition;
    
@@ -17,7 +18,7 @@ public class CameraShake : MonoBehaviour
     
     void Update()
     {
-        
+        transform.position += new Vector3(0,scrollSpeed,0) * Time.deltaTime;
     }
 
     public void Play()

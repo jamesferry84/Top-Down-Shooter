@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     private Vector2 maxBounds;
     
     [SerializeField] float moveSpeed = .5f;
-
     [SerializeField] private float paddingLeft;
     [SerializeField] private float paddingRight;
     [SerializeField] private float paddingTop;
@@ -41,6 +40,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InitBounds();
         Move();
     }
 
