@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,15 @@ public class EnemySpawner : MonoBehaviour
          StartCoroutine(SpawnEnemyWaves());
        // SpawnEnemyWaves();
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.Equals("MainCamera"))
+        {
+            Debug.Log("Collided with main camera");
+        }
+    }
+
 
     IEnumerator SpawnEnemyWaves()
     {
@@ -28,7 +37,6 @@ public class EnemySpawner : MonoBehaviour
         // {
             foreach (var waveConfig in waveConfigList)
             {
-                Debug.Log("inside wave");
                 currentWave = waveConfig;
                 for (int i = 0; i < currentWave.GetEnemyCount(); i++)
                 {

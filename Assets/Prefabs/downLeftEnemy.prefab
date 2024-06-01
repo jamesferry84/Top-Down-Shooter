@@ -9,15 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7319973981947543717}
-  - component: {fileID: -3710834378374497626}
   - component: {fileID: -3823611841162314108}
   - component: {fileID: 3973751703529855406}
   - component: {fileID: -5830156001035421405}
   - component: {fileID: 2995783259199708701}
   - component: {fileID: -391666654720419215}
-  - component: {fileID: -1141861107438380577}
+  - component: {fileID: 2143819171408468565}
   m_Layer: 7
-  m_Name: enemy 0
+  m_Name: downLeftEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,18 +38,6 @@ Transform:
   - {fileID: 3232086051612475637}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3710834378374497626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6571871196161247959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98029db246cef48e297347dedd16e1e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-3823611841162314108
 Rigidbody2D:
   serializedVersion: 4
@@ -184,7 +171,7 @@ MonoBehaviour:
   maxFiringDelay: 1
   target: {fileID: 3893172351282292673, guid: 4856036f2eb8a4b24854bc6a233f19f6, type: 3}
   isFiring: 0
---- !u!114 &-1141861107438380577
+--- !u!114 &2143819171408468565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2528e5aebd9854f21b22b46837bdbf0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  path: {fileID: 2057152513683215069, guid: 5bf7f02004bff47df8f1b18b627ca9ee, type: 3}
+  moveSpeed: 0
+  numberOfEnemies: 0
 --- !u!1 &8877315000157910518
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    private EnemySpawner enemySpawner;
+    private CustomSpawner enemySpawner;
     private WaveConfigSO waveConfig;
     private List<Transform> waypoints;
     private int currentWaypoint = 0;
 
     private void Awake()
     {
-        enemySpawner = FindObjectOfType<EnemySpawner>();
+        enemySpawner = FindObjectOfType<CustomSpawner>();
         
     }
 
     void Start()
     {
-        waveConfig = enemySpawner.getCurrentWave();
+        waveConfig = enemySpawner.GetWaveConfig();
         waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[currentWaypoint].position;
     }
@@ -53,7 +53,7 @@ public class PathFinder : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 }
