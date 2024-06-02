@@ -22,7 +22,6 @@ public class PowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision happened");
         if (other.tag.Equals("Player"))
         {
             target.FiringDelay -= decreaseFiringDelayAmount;
