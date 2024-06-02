@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
 
         foreach (Transform child in path)
         {
-            Debug.Log(child.position);
             waypoints.Add(child);
         }
         
@@ -51,5 +50,10 @@ public class Enemy : MonoBehaviour
            // Debug.Log("Inside else");
             // Destroy(gameObject);
         }
+    }
+
+    void GenerateNewEnemy()
+    {
+        
     }
 }

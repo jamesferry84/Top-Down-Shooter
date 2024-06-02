@@ -10,6 +10,11 @@ public class CameraShake : MonoBehaviour
     [SerializeField] private float scrollSpeed = 1f;
 
     private Vector3 initialPosition;
+
+    public float GetScrollingSpeed()
+    {
+        return scrollSpeed;
+    }
    
     void Start()
     {

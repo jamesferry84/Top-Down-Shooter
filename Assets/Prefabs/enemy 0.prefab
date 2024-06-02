@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: -5830156001035421405}
   - component: {fileID: 2995783259199708701}
   - component: {fileID: -391666654720419215}
-  - component: {fileID: -1141861107438380577}
   m_Layer: 7
   m_Name: enemy 0
   m_TagString: Untagged
@@ -184,19 +183,6 @@ MonoBehaviour:
   maxFiringDelay: 1
   target: {fileID: 3893172351282292673, guid: 4856036f2eb8a4b24854bc6a233f19f6, type: 3}
   isFiring: 0
---- !u!114 &-1141861107438380577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6571871196161247959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2528e5aebd9854f21b22b46837bdbf0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path: {fileID: 0}
 --- !u!1 &8877315000157910518
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,8 @@ public class Shooter : MonoBehaviour
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
         currentFiringDelay = firingDelay;
+        target = GetComponent<Transform>();
+        Debug.Log(target.name);
     }
 
     void Start()
@@ -75,7 +77,8 @@ public class Shooter : MonoBehaviour
             {
                 if (target != null)
                 {
-                    Vector2 direction = (target.transform.position - transform.position).normalized;
+                   // Debug.Log(target.position);
+                    Vector2 direction = (target.position - transform.position).normalized;
                     body.velocity = direction * projectileSpeed;
                 }
                 else

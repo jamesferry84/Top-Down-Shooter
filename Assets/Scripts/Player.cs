@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float paddingTop;
     [SerializeField] private float paddingBottom;
 
+    //private float cameraYSpeed = Camera.main.GetComponent<CameraShake>().GetScrollingSpeed();
+
     private Shooter shooter;
 
     private void Awake()
