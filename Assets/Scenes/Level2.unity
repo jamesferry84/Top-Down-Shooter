@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 1
   shakeMagnitude: 0
-  scrollSpeed: 0
+  scrollSpeed: 1
 --- !u!1 &1264701656
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +424,22 @@ PrefabInstance:
     - target: {fileID: 12031003333578868, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354413520722269198, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6835189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354413520722269198, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
+      propertyPath: m_Size.y
+      value: 0.53038263
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354413520722269198, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.005104542
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354413520722269198, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.030627012
       objectReference: {fileID: 0}
     - target: {fileID: 4285485119954490388, guid: 274235bf4b70d4ca2837b6b494b3def2, type: 3}
       propertyPath: m_Name
