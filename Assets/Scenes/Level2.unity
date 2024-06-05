@@ -5201,6 +5201,7 @@ GameObject:
   - component: {fileID: 851666159}
   - component: {fileID: 851666158}
   - component: {fileID: 851666162}
+  - component: {fileID: 851666163}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -5363,6 +5364,23 @@ MonoBehaviour:
   health: 100
   target: {fileID: 0}
   projectile: {fileID: 8530868278837485181, guid: a2a98eeb33d44420b8201e899c5060ab, type: 3}
+--- !u!114 &851666163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851666156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c358280ffe781c4fa888e18d8d2eb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 8530868278837485181, guid: a2a98eeb33d44420b8201e899c5060ab, type: 3}
+  speed: 2
+  bulletsPerShot: 1
+  firingRate: 5
+  numberOfProjectiles: 10
 --- !u!1 &1054174131
 GameObject:
   m_ObjectHideFlags: 0
