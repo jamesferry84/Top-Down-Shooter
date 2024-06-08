@@ -16,31 +16,29 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-         StartCoroutine(SpawnEnemyWaves());
-       // SpawnEnemyWaves();
+        StartCoroutine(SpawnEnemyWaves());
     }
-    
+
 
     IEnumerator SpawnEnemyWaves()
     {
-
-        // do
-        // {
+        do
+        {
             foreach (var waveConfig in waveConfigList)
             {
-                Debug.Log("inside wave");
                 currentWave = waveConfig;
+                Debug.Log("Enemy Count: " + currentWave.GetEnemyCount());
                 for (int i = 0; i < currentWave.GetEnemyCount(); i++)
                 {
                     Instantiate(currentWave.GetEnemyAtIndex(i),
                         currentWave.GetStartingWaypoint().position,
-                        Quaternion.Euler(0,0,180),
+                        Quaternion.Euler(0, 0, 180),
                         transform);
                     yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
                 }
-             }
-             yield return new WaitForSeconds(timeBetweenWaves);
-        } //while (isLooping);
-        
-    
+            }
+
+            yield return new WaitForSeconds(timeBetweenWaves);
+        } while (isLooping);
+    }
 }

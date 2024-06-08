@@ -7,6 +7,8 @@ public class CameraShake : MonoBehaviour
 
     [SerializeField] private float shakeDuration = 1f;
     [SerializeField] float shakeMagnitude = .5f;
+    [SerializeField] public bool cameraMove = false;
+    [SerializeField] public float moveSpeed = 0.2f;
 
     private Vector3 initialPosition;
    
@@ -17,12 +19,23 @@ public class CameraShake : MonoBehaviour
     
     void Update()
     {
-        
+        if (cameraMove)
+        {
+            Move();
+        }
     }
 
     public void Play()
     {
         StartCoroutine(Shake());
+    }
+
+    public void Move()
+    {
+        var pos = transform.position;
+        pos.z = -10f;
+        pos.y += moveSpeed * Time.deltaTime;
+        transform.position = pos;
     }
 
     IEnumerator Shake()

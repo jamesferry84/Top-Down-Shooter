@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     private Shooter shooter;
 
+
     private void Awake()
     {
         shooter = GetComponent<Shooter>();
@@ -46,9 +47,8 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    void Move()
+    void PlayAnimations()
     {
-        Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
         if (rawInput.x < -0.1f)
         {
             animator.SetBool("isGoingLeft", true);
@@ -63,9 +63,15 @@ public class Player : MonoBehaviour
             animator.SetBool("isGoingRight", false);
             animator.SetBool("isGoingLeft", false);
         }
+    }
+
+    void Move()
+    {
+        Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
+        PlayAnimations();
         Vector2 newPos = new Vector2();
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
-        newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);
+        newPos.y = Mathf.Clamp((transform.position.y + delta.y), minBounds.y + paddingBottom, maxBounds.y - paddingTop);
         
         transform.position = newPos;
     }
