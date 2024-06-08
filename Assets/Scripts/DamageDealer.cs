@@ -11,8 +11,22 @@ public class DamageDealer : MonoBehaviour
         return damage;
     }
 
-    public void Hit()
+    public void Hit(GameObject target)
     {
+        Health targetHealth = target.GetComponent<Health>();
+        if (targetHealth != null)
+        {
+            // Apply damage to the target
+            targetHealth.TakeDamage(damage);
+
+            // Check if the target is the player and only destroy if health is zero
+            if (targetHealth.GetHealth() <= 0)
+            {
+                Destroy(target);
+            }
+        }
+
+        // Destroy the damage dealer itself, e.g., a projectile
         Destroy(gameObject);
     }
 }

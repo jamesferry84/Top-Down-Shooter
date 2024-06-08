@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +20,6 @@ public class Health : MonoBehaviour
     {
         return health;
     }
-    
 
     private void Awake()
     {
@@ -33,7 +31,6 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (damageDealer != null)
         {
@@ -54,11 +51,10 @@ public class Health : MonoBehaviour
             // {
             //     Debug.Log(pathFinder.getNumOfEnemiesRemaining() + " more enemies to destroy");
             // }
-            
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
