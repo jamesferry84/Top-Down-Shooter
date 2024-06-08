@@ -17,13 +17,18 @@ public class Player : MonoBehaviour
     [SerializeField] private float paddingRight;
     [SerializeField] private float paddingTop;
     [SerializeField] private float paddingBottom;
+    private Animator animator;
 
     private Shooter shooter;
+    private CameraShake cameraShake;
+
 
     private void Awake()
     {
         shooter = GetComponent<Shooter>();
-        
+        animator = FindObjectOfType<Animator>();
+        cameraShake = FindObjectOfType<CameraShake>();
+
     }
 
     private void Start()
@@ -42,14 +47,35 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        GoBackwards();
+    }
+
+    void PlayAnimations()
+    {
+        if (rawInput.x < -0.1f)
+        {
+            animator.SetBool("isGoingLeft", true);
+            animator.SetBool("isGoingRight", false);
+        } else if (rawInput.x > 0.1f)
+        {
+            animator.SetBool("isGoingRight", true);
+            animator.SetBool("isGoingLeft", false);
+        }
+        else
+        {
+            animator.SetBool("isGoingRight", false);
+            animator.SetBool("isGoingLeft", false);
+        }
     }
 
     void Move()
     {
         Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
+        PlayAnimations();
         Vector2 newPos = new Vector2();
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
-        newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);
+        newPos.y = Mathf.Clamp((transform.position.y + delta.y), 
+            (minBounds.y  + Camera.main.transform.position.y) + paddingBottom, (maxBounds.y + Camera.main.transform.position.y) - paddingTop);
         
         transform.position = newPos;
     }
@@ -66,4 +92,16 @@ public class Player : MonoBehaviour
             shooter.isFiring = value.isPressed;
         }
     }
+
+    void GoBackwards()
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            if (cameraShake != null)
+            {
+                cameraShake.moveSpeed *= -1;
+            }
+        }
+    }
+    
 }
