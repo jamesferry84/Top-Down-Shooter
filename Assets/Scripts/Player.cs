@@ -20,12 +20,14 @@ public class Player : MonoBehaviour
     private Animator animator;
 
     private Shooter shooter;
+    private CameraShake cameraShake;
 
 
     private void Awake()
     {
         shooter = GetComponent<Shooter>();
         animator = FindObjectOfType<Animator>();
+        cameraShake = FindObjectOfType<CameraShake>();
 
     }
 
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        GoBackwards();
     }
 
     void PlayAnimations()
@@ -71,7 +74,8 @@ public class Player : MonoBehaviour
         PlayAnimations();
         Vector2 newPos = new Vector2();
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
-        newPos.y = Mathf.Clamp((transform.position.y + delta.y), minBounds.y + paddingBottom, maxBounds.y - paddingTop);
+        newPos.y = Mathf.Clamp((transform.position.y + delta.y), 
+            (minBounds.y  + Camera.main.transform.position.y) + paddingBottom, (maxBounds.y + Camera.main.transform.position.y) - paddingTop);
         
         transform.position = newPos;
     }
@@ -88,4 +92,16 @@ public class Player : MonoBehaviour
             shooter.isFiring = value.isPressed;
         }
     }
+
+    void GoBackwards()
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            if (cameraShake != null)
+            {
+                cameraShake.moveSpeed *= -1;
+            }
+        }
+    }
+    
 }
