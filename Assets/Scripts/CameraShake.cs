@@ -9,8 +9,11 @@ public class CameraShake : MonoBehaviour
     [SerializeField] float shakeMagnitude = .5f;
     [SerializeField] public bool cameraMove = false;
     [SerializeField] public float moveSpeed = 0.2f;
+    [SerializeField] public float defaultCameraMoveSpeed = 1f;
 
     private Vector3 initialPosition;
+    
+    
    
     void Start()
     {
