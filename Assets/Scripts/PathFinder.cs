@@ -9,17 +9,18 @@ public class PathFinder : MonoBehaviour
     private WaveConfigSO waveConfig;
     private List<Transform> waypoints;
     private int currentWaypoint = 0;
+    private Camera mainCamera;
 
     private void Awake()
     {
         enemySpawner = FindObjectOfType<EnemySpawner>();
-        
+        mainCamera = Camera.main; // Reference to the main camera
     }
 
     void Start()
     {
         waveConfig = enemySpawner.getCurrentWave();
-        waypoints = waveConfig.GetWaypoints();
+        AdjustWaypointsToCurrentPosition();
         transform.position = waypoints[currentWaypoint].position;
     }
     
@@ -54,6 +55,21 @@ public class PathFinder : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void AdjustWaypointsToCurrentPosition()
+    {
+        Vector3 cameraPosition = mainCamera.transform.position;
+
+        for (int i = 0; i < waypoints.Count; i++)
+        {
+            Vector3 adjustedPosition = new Vector3(
+                waypoints[i].position.x,
+                waypoints[i].position.y + cameraPosition.y,
+                waypoints[i].position.z
+            );
+            waypoints[i].position = adjustedPosition;
         }
     }
 }
