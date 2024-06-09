@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
             audioPlayer.PlayDamageClip();
             PlayHitEffect();
             ShakeCamera();
-            damageDealer.Hit();
+            damageDealer.Hit(other.gameObject);
         }
         PathFinder pathFinder = GetComponent<PathFinder>();
         if (pathFinder != null)
