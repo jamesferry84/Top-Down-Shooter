@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  health: 30
+  health: 10
   score: 50
   hitEffect: {fileID: 958516953304216594, guid: 80fd229e4e6054542a30cf1289f540d5, type: 3}
   applyCameraShake: 0
@@ -261,7 +261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8941952337739676706, guid: 9d1dbf0878d4d4b40961612181225f39, type: 3}
   projectileSpeed: 6
-  projectileLifeTime: 15
+  enemyProjectileSpeed: 5
+  projectileLifeTime: 5
   firingDelay: 0.5
   isPlayer: 0
   minFiringDelay: 0
