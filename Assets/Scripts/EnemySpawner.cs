@@ -25,13 +25,6 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemyWaves());
     }
 
-    void Update()
-    {
-        // Move the spawner with the camera
-        Vector3 cameraPosition = mainCamera.transform.position;
-        transform.position = new Vector3(cameraPosition.x, cameraPosition.y + 5f, transform.position.z);
-    }
-
     IEnumerator SpawnEnemyWaves()
     {
         do
@@ -43,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; i < currentWave.GetEnemyCount(); i++)
                 {
                     Vector3 spawnPosition = GetSpawnPosition();
+                    Debug.Log($"Spawning enemy {i} at position: {spawnPosition}");
                     Instantiate(currentWave.GetEnemyAtIndex(i), spawnPosition, Quaternion.Euler(0, 0, 180));
                     yield return new WaitForSeconds(currentWave.GetRandomSpawnTime());
                 }
@@ -66,7 +60,6 @@ public class EnemySpawner : MonoBehaviour
         // Ensure enemies spawn in front of the camera's current position
         Vector3 spawnPosition = new Vector3(spawnX, spawnY, 0);
 
-        Debug.Log("Spawning enemy at position: " + spawnPosition);
         return spawnPosition;
     }
 }
