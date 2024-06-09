@@ -11,6 +11,7 @@ public class Shooter : MonoBehaviour
     [Header("General")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private float enemyProjectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
     [SerializeField] private float firingDelay = 10f;
     
@@ -18,7 +19,8 @@ public class Shooter : MonoBehaviour
     [SerializeField] private bool isPlayer;
     [SerializeField] private float minFiringDelay = 0f;
     [SerializeField] private float maxFiringDelay = 1f;
-    [SerializeField] private Transform target;
+    private Player player;
+    private Transform target;
 
     [HideInInspector] public bool isFiring;
 
@@ -31,6 +33,11 @@ public class Shooter : MonoBehaviour
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
         currentFiringDelay = firingDelay;
+        if (!isPlayer)
+        {
+            player = FindObjectOfType<Player>();
+            target = player.transform;
+        }
     }
 
     void Start()
@@ -76,7 +83,7 @@ public class Shooter : MonoBehaviour
                 if (target != null)
                 {
                     Vector2 direction = (target.transform.position - transform.position).normalized;
-                    body.velocity = direction * projectileSpeed;
+                    body.velocity = direction * enemyProjectileSpeed;
                 }
                 else
                 {

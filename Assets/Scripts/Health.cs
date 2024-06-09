@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +20,6 @@ public class Health : MonoBehaviour
     {
         return health;
     }
-    
 
     private void Awake()
     {
@@ -33,7 +31,6 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         DamageDealer damageDealer = other.GetComponent<DamageDealer>();
         if (damageDealer != null)
         {
@@ -41,24 +38,23 @@ public class Health : MonoBehaviour
             audioPlayer.PlayDamageClip();
             PlayHitEffect();
             ShakeCamera();
-            damageDealer.Hit();
+            damageDealer.Hit(other.gameObject);
         }
         PathFinder pathFinder = GetComponent<PathFinder>();
         if (pathFinder != null)
         {
-            if (pathFinder.checkAllEnemiesDestroyed())
-            {
-                Debug.Log("All enemies destroyed in wave!! congrats!");
-            }
-            else
-            {
-                Debug.Log(pathFinder.getNumOfEnemiesRemaining() + " more enemies to destroy");
-            }
-            
+            // if (pathFinder.checkAllEnemiesDestroyed())
+            // {
+            //     Debug.Log("All enemies destroyed in wave!! congrats!");
+            // }
+            // else
+            // {
+            //     Debug.Log(pathFinder.getNumOfEnemiesRemaining() + " more enemies to destroy");
+            // }
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
