@@ -636,7 +636,7 @@ MonoBehaviour:
   shakeDuration: 0.4
   shakeMagnitude: 0.1
   cameraMove: 1
-  moveSpeed: 2
+  moveSpeed: 6
   defaultCameraMoveSpeed: 1
 --- !u!1 &730897437
 GameObject:
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.15
+  m_fontSize: 38.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2322,6 +2322,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4237004440634343356, guid: e2db9c94505364e89b1483dcc64d8c3c, type: 3}
+      propertyPath: isLooping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6390928793132555169, guid: e2db9c94505364e89b1483dcc64d8c3c, type: 3}
       propertyPath: m_Name
       value: EnemySpawner
