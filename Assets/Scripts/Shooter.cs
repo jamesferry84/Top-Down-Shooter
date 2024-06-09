@@ -11,6 +11,7 @@ public class Shooter : MonoBehaviour
     [Header("General")]
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileSpeed = 10f;
+    [SerializeField] private float enemyProjectileSpeed = 10f;
     [SerializeField] private float projectileLifeTime = 5f;
     [SerializeField] private float firingDelay = 10f;
     
@@ -82,7 +83,7 @@ public class Shooter : MonoBehaviour
                 if (target != null)
                 {
                     Vector2 direction = (target.transform.position - transform.position).normalized;
-                    body.velocity = direction * projectileSpeed;
+                    body.velocity = direction * enemyProjectileSpeed;
                 }
                 else
                 {

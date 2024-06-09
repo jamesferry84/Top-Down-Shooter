@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
 
     private Shooter shooter;
     private CameraShake cameraShake;
+    public  Vector2 delta;
+
+    public float MoveSpeed
+    {
+        get => moveSpeed;
+        set => moveSpeed = value;
+    }
 
 
     private void Awake()
@@ -70,7 +77,7 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        Vector2 delta = rawInput * moveSpeed * Time.deltaTime;
+        delta = rawInput * moveSpeed * Time.deltaTime;
         PlayAnimations();
         Vector2 newPos = new Vector2();
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
