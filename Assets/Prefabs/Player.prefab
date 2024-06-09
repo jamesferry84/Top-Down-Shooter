@@ -410,7 +410,7 @@ MonoBehaviour:
   projectile: {fileID: 8941952337739676706, guid: abf230f6cafeb412a83b96dea6b2ab6b, type: 3}
   projectileSpeed: 10
   projectileLifeTime: 5
-  firingDelay: 10
+  firingDelay: 0.1
   isPlayer: 1
   minFiringDelay: 0
   maxFiringDelay: 1
