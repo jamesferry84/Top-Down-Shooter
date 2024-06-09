@@ -12,6 +12,8 @@ public class CameraShake : MonoBehaviour
     [SerializeField] public float defaultCameraMoveSpeed = 1f;
 
     private Vector3 initialPosition;
+
+    private bool slowCameraToZero = false;
     
     
    
@@ -25,6 +27,11 @@ public class CameraShake : MonoBehaviour
         if (cameraMove)
         {
             Move();
+        }
+
+        if (slowCameraToZero)
+        {
+            SlowCameraToZero();
         }
     }
 
@@ -51,5 +58,26 @@ public class CameraShake : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         transform.position = initialPosition;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag.Equals("playerProjectile"))
+        {
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag.Equals("StopCamera"))
+        {
+            slowCameraToZero = true;
+        }
+    }
+
+    void SlowCameraToZero()
+    {
+        if (moveSpeed > 0.1f)
+        {
+            moveSpeed -= 0.1f;
+        }
     }
 }
