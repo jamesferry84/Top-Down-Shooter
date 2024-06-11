@@ -9,6 +9,7 @@ public class PathFinder : MonoBehaviour
     private WaveConfigSO waveConfig;
     private List<Transform> waypoints;
     private int currentWaypoint = 0;
+    [SerializeField] private Player player;
 
     private void Awake()
     {
@@ -18,14 +19,23 @@ public class PathFinder : MonoBehaviour
 
     void Start()
     {
-        waveConfig = enemySpawner.getCurrentWave();
-        waypoints = waveConfig.GetWaypoints();
-        transform.position = waypoints[currentWaypoint].position;
+       // player = GetComponent<Player>();
+        // waveConfig = enemySpawner.getCurrentWave();
+        // waypoints = waveConfig.GetWaypoints();
+        // transform.position = waypoints[currentWaypoint].position;
     }
     
     void Update()
     {
-        FollowPath();
+        if (waypoints != null)
+        {
+            FollowPath();
+        }
+        else
+        {
+            FollowPlayer();
+        }
+
     }
 
     public bool checkAllEnemiesDestroyed()
@@ -37,6 +47,31 @@ public class PathFinder : MonoBehaviour
     public int getNumOfEnemiesRemaining()
     {
         return waveConfig.GetEnemyCount();
+    }
+
+    void FollowPlayer()
+    {
+
+        if (player != null)
+        {
+            Debug.Log("inside follow player");
+            //get position of player
+            var playerPos = player.transform.position;
+            var currentPos = transform.position;
+            var difference = (playerPos - currentPos);
+            
+            float delta = 1f * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(currentPos, playerPos, delta);
+            
+            Vector3 relativePos = difference;
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward,relativePos);
+            rotation.x = transform.rotation.x;
+            rotation.y = transform.rotation.y;
+            transform.rotation = rotation;
+            //transform.rotation = Quaternion.RotateTowards();
+            // Vector2 direction = (player.transform.position - transform.position).normalized;
+            // body.velocity = direction * enemyProjectileSpeed;
+        }
     }
 
     void FollowPath()
