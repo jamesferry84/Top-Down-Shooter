@@ -13,15 +13,18 @@ public class Player : MonoBehaviour
     
     [SerializeField] float moveSpeed = .5f;
 
-    [SerializeField] private float paddingLeft;
-    [SerializeField] private float paddingRight;
-    [SerializeField] private float paddingTop;
-    [SerializeField] private float paddingBottom;
+    private float paddingLeft;
+    private float paddingRight;
+    private float paddingTop;
+    private float paddingBottom;
     private Animator animator;
 
     private Shooter shooter;
     private CameraShake cameraShake;
     public  Vector2 delta;
+
+    private SpriteRenderer renderer;
+    private Bounds bounds;
 
     public float MoveSpeed
     {
@@ -35,7 +38,13 @@ public class Player : MonoBehaviour
         shooter = GetComponent<Shooter>();
         animator = FindObjectOfType<Animator>();
         cameraShake = FindObjectOfType<CameraShake>();
-
+        renderer = FindObjectOfType<SpriteRenderer>();
+        bounds = renderer.bounds;
+        paddingBottom = bounds.size.y / 2;
+        paddingTop = bounds.size.y / 2;
+        paddingLeft = bounds.size.x / 2;
+        paddingRight = bounds.size.x / 2;
+        
     }
 
     private void Start()
@@ -46,8 +55,8 @@ public class Player : MonoBehaviour
     void InitBounds()
     {
         Camera mainCamera = Camera.main;
-        minBounds = mainCamera.ViewportToWorldPoint(new Vector2(0, 0));
-        maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1, 1));
+        minBounds = mainCamera.ViewportToWorldPoint(new Vector2(-1000, 0));
+        maxBounds = mainCamera.ViewportToWorldPoint(new Vector2(1000, 1));
     }
 
     // Update is called once per frame
@@ -85,6 +94,15 @@ public class Player : MonoBehaviour
             (minBounds.y  + Camera.main.transform.position.y) + paddingBottom, (maxBounds.y + Camera.main.transform.position.y) - paddingTop);
         
         transform.position = newPos;
+
+        if (transform.position.x <= -1)
+        {
+            var newCamPos = new Vector3();
+            newCamPos.x = Camera.main.transform.position.x;
+            newCamPos.x = Mathf.Clamp(transform.position.x + (delta.x / 2), (minBounds.x + paddingLeft) - 5f, maxBounds.x - paddingRight);
+            newCamPos.z = -10f;
+            Camera.main.transform.position = newCamPos;
+        }
     }
 
     void OnMove(InputValue value)
